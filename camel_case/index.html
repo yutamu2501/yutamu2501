@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>camel case.</title>
+    <script src="http://www.google.com/jsapi"></script>
+    <script>google.load("jquery", "1.4"); </script>
+    <script type="text/javascript">
+      $(init);
+      function init() { $('#btn').click(function() { s = $("#txt").val(); s = $("#txt").val(camelcase(s)); }); $('#btn2').click(function() { s = $("#txt2").val(); s = $("#txt2").val(camelcase_(s)); }); }
+      function camelcase( s ) { s = trim( s ); return ( /\S[A-Z]/.test( s ) ) ?  s.replace( /(.)([A-Z])/g, function(t,a,b) { return a + ' ' + b.toLowerCase(); } ) : s.replace( /( )([a-z])/g, function(t,a,b) { return b.toUpperCase(); } ); } 
+      function camelcase_( s ) { s = trim( s ); return ( /\S[A-Z]/.test( s ) ) ?  s.replace( /(.)([A-Z])/g, function(t,a,b) { return a + '_' + b.toLowerCase(); } ) : s.replace( /(_)([a-z])/g, function(t,a,b) { return b.toUpperCase(); } ); } 
+      function trim(target) { return target.replace(/(^\s+)|(\s+$)/g, ""); }
+    </script>
+    <style type="text/css">
+      div#wrapper {width: 100%;text-align: justify;}
+      /* div#container {width: 750px; margin-left: auto; margin-right: auto;} */
+      h1 {font-size: 1em;}
+      input#txt {width: 512px;}
+      input#txt2 {width: 512px;}
+    </style>
+  </head>
+  <body>
+    <h1>Camel Case.</h1>
+    <div id="wrapper">
+      <div id="container">
+        <div>
+	<p>space &lt;-&gt; camelCase</p>
+          <input type="text" id="txt" value="space to camel case."/>
+          <input type="button" id="btn" value="change" />
+        </div>
+        <div>
+	  <p>under_score &lt;-&gt; camelCase</p>
+          <input type="text" id="txt2" value="under_score_to_camel_case." />
+          <input type="button" id="btn2" value="change" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
